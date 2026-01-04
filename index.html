@@ -111,7 +111,7 @@ const Desafio200Depositos = () => {
           <p className="text-center text-gray-600 mb-4 text-sm">
             Clique nos valores que você já guardou
           </p>
-          <div className="grid grid-cols-10 gap-2">
+          <div className="grid grid-cols-5 sm:grid-cols-10 gap-1.5 sm:gap-2">
             {values.map((value) => {
               const isSelected = selectedValues.has(value);
               return (
@@ -119,17 +119,17 @@ const Desafio200Depositos = () => {
                   key={value}
                   onClick={() => handleClick(value)}
                   className={`
-                    relative aspect-square rounded-lg font-semibold text-sm
-                    transition-all duration-200 transform hover:scale-105
+                    relative h-12 sm:h-14 flex items-center justify-center rounded-lg font-semibold text-xs sm:text-sm
+                    transition-all duration-200 transform active:scale-95 hover:scale-105
                     ${isSelected 
-                      ? 'bg-gradient-to-br from-green-400 to-green-600 text-white shadow-lg' 
+                      ? 'bg-gradient-to-br from-green-400 to-green-600 text-white shadow-lg scale-100' 
                       : 'bg-gradient-to-br from-purple-100 to-pink-100 text-purple-700 hover:from-purple-200 hover:to-pink-200'
                     }
                   `}
                 >
-                  {value}
+                  <span className="relative z-10">{value}</span>
                   {isSelected && (
-                    <Check className="absolute top-1 right-1 w-3 h-3" />
+                    <Check className="absolute top-0.5 right-0.5 sm:top-1 sm:right-1 w-3 h-3" />
                   )}
                 </button>
               );
